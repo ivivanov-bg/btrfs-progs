@@ -7092,8 +7092,7 @@ static int repair_ref(struct btrfs_path *path, struct data_backref *dback,
 		if (key.objectid != dback->owner ||
 		    key.type != BTRFS_EXTENT_DATA_KEY) {
 			fprintf(stderr, "Couldn't find our ref, search. key.objectid %d, dback->owner %d, key.type %d \n", key.objectid, dback->owner, key.type);
-//			return -EINVAL;
-			break;
+			return -EINVAL;
 		}
 		fi = btrfs_item_ptr(leaf, path->slots[0],
 				    struct btrfs_file_extent_item);
